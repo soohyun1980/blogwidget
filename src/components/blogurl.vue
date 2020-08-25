@@ -33,6 +33,10 @@ export default {
   },
   methods: {
     open() {
+<<<<<<< HEAD
+=======
+      
+>>>>>>> 17e1e9d... api test
       //내 블로그
       const blogApiroot = "https://blogger.googleapis.com/v3/blogs/"+this.blogSet.blogId+"/posts",
             blogApicord = "key="+this.blogSet.googleApi;
