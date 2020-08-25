@@ -3,9 +3,9 @@
     <h2>{{mag}}</h2>
     <ul>
       <transition-group name="list" tag="p">
-      <li v-for="link in url" :key="link.id" :class="[link.currentUrl == link.url ? 'on' :'']">
-        <div class="current" v-if="link.currentUrl == link.url"></div>
-        <p class="current" v-if="link.currentUrl == link.url">보고 있는 글</p>
+      <li v-for="link in url" :key="link.id" :class="[currentHttps(link.url) ? 'on' :'']">
+        <div class="current" v-if="currentHttps(link.url)"></div>
+        <p class="current" v-if="currentHttps(link.url)">보고 있는 글</p>
         <a :href="link.url" >
           <img :src="thumb(link.images[0].url)" >
           <span class="title">{{link.title}}</span>
@@ -60,7 +60,8 @@ export default {
         .then((response) => {
           this.url = response;
           this.mag = this.blogSet.title;
-          //console.log(this.url)
+          //console.log(this.url , "blogListJson")
+          //console.log(this.blogSet , "this.blogSet")
           this.$forceUpdate();
       })
     },
@@ -80,6 +81,11 @@ export default {
     thumb(url){
       let imgThumb = url.replace("/d/","/s55-c/");
       return imgThumb;
+    },
+    currentHttps(url){
+      let currentUrl = this.blogSet.currentUrl;
+      let https = url.replace("http:","https:");
+      return (currentUrl == https) ? true : false;
     },
     split(tx){
       let year = tx.substring(0,4),
@@ -177,6 +183,11 @@ a span {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 72%;
+}
+a span.title{
+  font-size: 1em !important;
+  line-height: 1.5em !important;
+  margin: 0 !important;
 }
 a span.date{
   font-size: .9em;
