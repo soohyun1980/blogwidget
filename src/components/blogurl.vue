@@ -38,10 +38,21 @@ export default {
       const blogApiroot = "https://blogger.googleapis.com/v3/blogs/"+this.blogSet.blogId+"/posts",
             blogApicord = "key="+this.blogSet.googleApi;
       //옵션 API
-      let blogOptApi ="&fetchBodies=false&orderBy=PUBLISHED&orderBy=published&maxResults=50&fetchImages=true&",
-          getList;
+      let isUpdated ="";
+      if(this.blogSet.update == "yes"){
+        isUpdated = "updated";
+        //console.log('updated');
+      } else {
+        isUpdated = "PUBLISHED";
+        //console.log('PUBLISHED');
+      }
+
+      let blogOptApi ="&fetchBodies=false&orderBy="+isUpdated+"&maxResults="+this.blogSet.limit+"&fetchImages=true&";
       
-      //검색 설정
+      
+
+      //검색 설정 대표 이미지 누락으로 비 활성화
+      /*
       if(this.blogSet.isSearch == "true"){
         getList = blogApiroot+"/search?q="+this.blogSet.keyword+blogOptApi+blogApicord
         //console.log(getList,true);
@@ -49,10 +60,11 @@ export default {
         getList = blogApiroot+"?labels="+this.blogSet.keyword+blogOptApi+blogApicord
         //console.log(getList,false);
       }
-      
+      */
+
       //GET URL
       axios
-        .get(getList)
+        .get(blogApiroot+"?labels="+this.blogSet.keyword+blogOptApi+blogApicord)
         .then(r => r.data.items)
         .then((response) => {
           this.url = response;

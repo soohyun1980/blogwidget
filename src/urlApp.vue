@@ -21,8 +21,9 @@ export default {
   created() {
     const el = document.querySelector("#blogUrl").dataset
     this.opt = {
-      isSearch:el.search,
       keyword:el.keyword,
+      update:el.update,
+      limit:el.limit,
       currentUrl: this.currentUrl(window.location.href),
       title:el.title,
       blogId:'6674069127668960844',
