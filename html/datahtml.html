@@ -133,8 +133,8 @@
 
 <span style="border:3px solid #e27700; padding: 2em 1em 1em 1em; position: relative; display: inline-block">
   <span style="position: absolute; font-size: 0.84em; left:0px; top:0px; background: #e27700; color: #fff; line-height: 1.4em; padding: 0em 0.5em; white-space: nowrap">사이트 링크</span>
-  <a class="text" href="http://welltuned.co.kr/" target="_blank">
-    웰튠 타이어(슈발베, 벨로또) ▶
+  <a class="text" href="https://earth.nullschool.net/ko/#2020/09/03/0200Z/particulates/surface/level/overlay=pm2.5/orthographic=126.63,35.99,1306" target="_blank">
+    널스쿨.전세계의 바람, 날씨, 바다 상태 ▶
   </a>
 </span>
 
@@ -148,10 +148,13 @@ http://cyclemonkeylab.blogspot.com/2014/06/tech-talk-belt-vs-chain-drive.html
 <br />
 
 <div id="blogUrl" data-update="no" data-limit="5" data-keyword="%EA%B8%B0%EC%96%B4%EB%B9%84" data-title="기어비와 관련된 글"></div>
+
+<div data-keyword="%EC%9E%90%EC%A0%84%EA%B1%B0+%EA%B5%AD%ED%86%A0%EC%A2%85%EC%A3%BC" data-limit="5" data-title="국토종주 이야기" data-update="no" id="blogUrl"></div>
+
 <div id="blogUrl" data-update="yes" data-limit="10" data-keyword="자전거이야기, 브롬톤" data-title="기어비와 관련된 글"></div>
 
 
-<div style="height: 400px; max-width: 400px; text-align: center;">
+<div style="height: 400px; max-width: 400px; text-align:center">
 <canvas id="chartView1" style="height: 400px; width: 100%;"></canvas>
   <br />
 <span style="color: orange;">생활 자전거로써 개인적인 평가입니다.</span>
@@ -174,7 +177,42 @@ http://cyclemonkeylab.blogspot.com/2014/06/tech-talk-belt-vs-chain-drive.html
 </script>
 <br />
 <br />
-  
+
+
+<div style="max-width:400px; height: 300px; text-align: center">
+  <canvas id="chartView2" data-type="elv" style="width: 100%; height: 300px;"></canvas>
+  <br />
+  <span style="color: orange;">개인적으로 느껴지는 코스 분위기입니다.</span>
+  <br />
+</div>
+
+<script>
+  addChartBike({
+    el: 'chartView2',
+    json: [
+      { "label": "0km", "val": 0, "text": "기준고도 0" },
+      { "label": "언덕이 조금 있습니다", "val": 460, "text": "460m 상승" },
+      { "label": "103.9km", "val": 0, "text": "주행거리 103.9km" }
+    ]
+  });
+</script>
+<br />
+<br />
+<div data-keyword="%EC%9E%90%EC%A0%84%EA%B1%B0+%EA%B5%AD%ED%86%A0%EC%A2%85%EC%A3%BC" data-limit="5" data-title="국토종주 이야기" data-update="no" id="blogUrl"></div>
+<br />
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- soo1980_ads_AdSense2_970x250_as -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9308348577300519"
+     data-ad-slot="9786991615"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 
 </body>

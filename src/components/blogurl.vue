@@ -49,8 +49,6 @@ export default {
 
       let blogOptApi ="&fetchBodies=false&orderBy="+isUpdated+"&maxResults="+this.blogSet.limit+"&fetchImages=true&";
       
-      
-
       //검색 설정 대표 이미지 누락으로 비 활성화
       /*
       if(this.blogSet.isSearch == "true"){
@@ -78,14 +76,15 @@ export default {
       clearInterval(domScroll);
     },
     setupListDom(){
-      let scrollTop = window.pageYOffset + window.innerHeight + 500;
-      let scrollHeight = document.body.scrollHeight;
+      let scrollTop = window.pageYOffset + (window.innerHeight+410);
+      let offset = this.blogSet.el.getBoundingClientRect().height;
+      let scrollHeight = offset - window.innerHeight;
 
       if(scrollTop > scrollHeight){
         this.clearCall();
         this.open();
       }
-      //console.log(scrollTop, scrollHeight ,"---- scrollTop, ---- scrollHeight ");
+      //console.log(scrollTop, scrollHeight ,"---- scrollTop, ---- scrollHeight ",offset);
     },
     thumb(url){
       let imgThumb = url.replace("/d/","/s55-c/");
@@ -112,8 +111,8 @@ export default {
     // 리스트 스크롤 
     this.clearCall();
     domScroll = setInterval(()=>{
-      this.setupListDom()
-    },300)
+      this.setupListDom();
+    },100)
   }
 }
 </script>
@@ -204,14 +203,32 @@ a span.date{
   color: #b5b5b5;
 }
 
+#urlApp .hello .list-enter-active:nth-child(1){
+   transition: all .3s ;
+}
+#urlApp .hello .list-enter-active:nth-child(2){
+   transition: all .8s;
+}
+#urlApp .hello .list-enter-active:nth-child(3){
+   transition: all 1.1s;
+}
+#urlApp .hello .list-enter-active:nth-child(4){
+   transition: all 1.4s;
+}
+#urlApp .hello .list-enter-active:nth-child(5){
+   transition: all 1.7s;
+}
+
 .list-item {
   display: inline-block;
 }
 .list-enter-active, .list-leave-active {
-  transition: all .5s;
+  transition: all 2s;
+  border: 1px solid #fff;
 }
 .list-enter, .list-leave-to{
   opacity: 0;
   transform: translateY(100px);
+  transform: rotate( -5deg );
 }
 </style>

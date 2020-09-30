@@ -21,13 +21,14 @@ export default {
   created() {
     const el = document.querySelector("#blogUrl").dataset
     this.opt = {
-      keyword:el.keyword,
-      update:el.update,
-      limit:el.limit,
-      currentUrl: this.currentUrl(window.location.href),
-      title:el.title,
-      blogId:'6674069127668960844',
-      googleApi:'AIzaSyDTFxVUUSFWFmIkk6UyELUjYgnVuQmJ7O8'
+      "el":document.querySelector("#page_body"),
+      "keyword":el.keyword,
+      "update":el.update,
+      "limit":el.limit,
+      "currentUrl": this.currentUrl(window.location.href),
+      "title":el.title,
+      "blogId":'6674069127668960844',
+      "googleApi":'AIzaSyDTFxVUUSFWFmIkk6UyELUjYgnVuQmJ7O8'
     };
   }
 }
